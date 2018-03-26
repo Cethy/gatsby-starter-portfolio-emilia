@@ -11,7 +11,7 @@ collections:
     editor:
       preview: false
     files:
-      - file: "content/config/site.yaml"
+      - file: "content/config/site.json"
         label: "Site configuration"
         name: "config"
         fields:
@@ -44,4 +44,4 @@ collections:
           - {label: "avatar", name: "avatar"} # @todo image ?
           - {label: "name", name: "name"}
           - {label: "location", name: "location"}
-          - {label: "socialMedia", name: "socialMedia", widget: "list", fields: [{label: Url, name: url}, {label: Name, name: name}]}
+          - {label: "socialMedia", name: "socialMedia", widget: "list", fields: [{label: Name, name: name}, {label: Url, name: url}]}

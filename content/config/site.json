@@ -1,0 +1,31 @@
+{
+  "headerFontFamily": "Open Sans",
+  "baseFontSize": "16px",
+  "dateFormat": "DD.MM.YYYY",
+  "userTwitter": "emilia",
+  "siteUrl": "https://portfolio-emilia.netlify.com/",
+  "googleAnalyticsID": "UA-12345689-1",
+  "ogSiteName": "emilia",
+  "name": "LekoArts",
+  "siteTitle": "Emilia",
+  "siteLogo": "/logos/logo-1024.png",
+  "siteDescription": "Dark One-Page portfolio with cards & detailed project views",
+  "backgroundColor": "#2b2e3c",
+  "location": "Germany",
+  "bodyFontFamily": "Merriweather",
+  "socialMedia": [
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/lekoarts.de"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com/lekoarts.de"
+    }
+  ],
+  "siteTitleAlt": "Emilia - Gatsby Starter Portfolio",
+  "avatar": "/logos/social.png",
+  "siteFBAppID": "123456789",
+  "themeColor": "#3498DB",
+  "siteLanguage": "en"
+}

@@ -7,7 +7,8 @@
 - [ ] Add site config to netlify-cms
     - [x] Create site config file
     - [x] Update netlify-cms config (`admin/config.yml`)
-    - [ ] Update how gatsby get the site configuration
+    - [x] Update how gatsby get the site configuration
+    - [ ] Split configuration into subfiles
 - [ ] Add custom widgets to markdown editor 
     - [ ] image directory selector 
     - [ ] cover image selector
