@@ -3,7 +3,15 @@
 ### Modifications from original repository
 
 - [x] Automatically add local jpg files to project page ;
-
+- [x] Add admin UI w/ netlify-cms
+- [ ] Add site config to netlify-cms
+    - [x] Create site config file
+    - [x] Update netlify-cms config (`admin/config.yml`)
+    - [ ] Update how gatsby get the site configuration
+- [ ] Add custom widgets to markdown editor 
+    - [ ] image directory selector 
+    - [ ] cover image selector
+- [ ] Add 
 
 # Gatsby Starter Portfolio: Emilia
 

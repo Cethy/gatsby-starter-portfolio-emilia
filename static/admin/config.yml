@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+  branch: netlify-cms
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "site"
+    label: "Site"
+    editor:
+      preview: false
+    files:
+      - file: "content/config/site.yaml"
+        label: "Site configuration"
+        name: "config"
+        fields:
+          - {label: "Site title", name: "siteTitle"}
+          - {label: "siteTitleAlt", name: "siteTitleAlt"}
+          - {label: "siteUrl", name: "siteUrl"}
+          - {label: "siteLanguage", name: "siteLanguage"}
+          - {label: "siteLogo", name: "siteLogo"}
+          - {label: "siteDescription", name: "siteDescription"}
+
+          - {label: "siteFBAppID", name: "siteFBAppID"}
+          - {label: "userTwitter", name: "userTwitter"}
+          - {label: "ogSiteName", name: "ogSiteName"}
+          - {label: "googleAnalyticsID", name: "googleAnalyticsID"}
+
+          # Date format used in your project
+          # More information here: https://date-fns.org/v1.29.0/docs/format
+          - {label: "dateFormat", name: "dateFormat"}
+
+          # Manifest and Progress color
+          - {label: "themeColor", name: "themeColor"}
+          - {label: "backgroundColor", name: "backgroundColor"}
+
+          # Settings for typography.js
+          - {label: "headerFontFamily", name: "headerFontFamily"}
+          - {label: "bodyFontFamily", name: "bodyFontFamily"}
+          - {label: "baseFontSize", name: "baseFontSize"}
+
+          # Your information
+          - {label: "avatar", name: "avatar"} # @todo image ?
+          - {label: "name", name: "name"}
+          - {label: "location", name: "location"}
+          - {label: "socialMedia", name: "socialMedia", widget: "list", fields: [{label: Url, name: url}, {label: Name, name: name}]}

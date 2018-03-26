@@ -85,5 +85,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    // netlify-cms plugin
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
   ],
 };
