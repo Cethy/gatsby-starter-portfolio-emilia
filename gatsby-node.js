@@ -26,44 +26,54 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const projectPage = path.resolve('src/templates/project.js');
-    resolve(graphql(`
+    resolve(
+      graphql(`
         {
           projects: allMarkdownRemark {
             edges {
               node {
+                fileAbsolutePath
                 fields {
                   slug
                 }
                 frontmatter {
                   title
+                  cover {
+                    absolutePath
+                  }
                 }
               }
             }
           }
         }
-      `).then((result) => {
-      if (result.errors) {
-        /* eslint no-console: "off" */
-        console.log(result.errors);
-        reject(result.errors);
-      }
+      `).then(result => {
+        if (result.errors) {
+          /* eslint no-console: "off" */
+          console.log(result.errors);
+          reject(result.errors);
+        }
 
-      const projectPosts = result.data.projects.edges;
+        const projectPosts = result.data.projects.edges;
 
-      projectPosts.forEach((edge, index) => {
-        const next = index === 0 ? false : projectPosts[index - 1].node;
-        const prev = index === projectPosts.length - 1 ? false : projectPosts[index + 1].node;
+        projectPosts.forEach((edge, index) => {
+          const { node } = edge;
 
-        createPage({
-          path: edge.node.fields.slug,
-          component: projectPage,
-          context: {
-            slug: edge.node.fields.slug,
-            prev,
-            next,
-          },
+          const next = index === 0 ? false : projectPosts[index - 1].node;
+          const prev = index === projectPosts.length - 1 ? false : projectPosts[index + 1].node;
+
+          createPage({
+            path: node.fields.slug,
+            component: projectPage,
+            context: {
+              slug: node.fields.slug,
+              absolutePathRegex: `/^${path.dirname(node.fileAbsolutePath)}/`,
+              absolutePathCover: node.frontmatter.cover.absolutePath,
+              prev,
+              next,
+            },
+          });
         });
-      });
-    }));
+      })
+    );
   });
 };

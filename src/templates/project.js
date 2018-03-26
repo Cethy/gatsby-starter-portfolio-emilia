@@ -14,7 +14,8 @@ import * as palette from '../../config/Style';
 
 const Project = props => {
   const { slug, next, prev } = props.pathContext;
-  const postNode = props.data.markdownRemark;
+  const postNode = props.data.project;
+  const images = props.data.images.edges;
   const project = postNode.frontmatter;
   const date = format(project.date, config.dateFormat);
 
@@ -47,6 +48,22 @@ const Project = props => {
           </Overdrive>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <div
+          style={{
+            position: 'relative',
+            maxWidth: palette.MAX_WIDTH_PROJECT_DETAIL,
+            margin: '2.75rem auto',
+          }}
+        >
+          {images.map(image => (
+            <Img
+              sizes={image.node.childImageSharp.sizes}
+              style={{
+                marginBottom: '2.75rem',
+              }}
+            />
+          ))}
+        </div>
         <ProjectPagination next={next} prev={prev} />
       </div>
     </div>
@@ -57,8 +74,24 @@ export default Project;
 
 /* eslint no-undef: off */
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query ProjectPostBySlug($slug: String!, $absolutePathRegex: String!, $absolutePathCover: String!) {
+    images: allFile(
+      filter: { absolutePath: { ne: $absolutePathCover, regex: $absolutePathRegex }, extension: { eq: "jpg" } }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            sizes(maxWidth: 1600, quality: 90, traceSVG: { color: "#328bff" }) {
+              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+            }
+            resize(width: 800) {
+              src
+            }
+          }
+        }
+      }
+    }
+    project: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         cover {

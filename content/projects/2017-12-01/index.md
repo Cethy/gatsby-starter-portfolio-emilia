@@ -7,5 +7,3 @@ areas:
     - Art
 ---
 
-![](./andrea-natali.jpg)
-![](./kari-shea.jpg)

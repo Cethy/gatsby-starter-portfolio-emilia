@@ -6,5 +6,3 @@ areas:
     - Photography
 ---
 
-![](./averie-woodard.jpg)
-![](./sabina-ciesielska.jpg)

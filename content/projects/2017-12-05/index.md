@@ -7,5 +7,3 @@ areas:
     - Art
 ---
 
-![](./matt-safian.jpg)
-![](./robert-katzki.jpg)
